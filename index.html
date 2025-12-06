@@ -3,177 +3,254 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Oracto builds professional SaaS platforms, web applications, and mobile apps. We design, develop, and scale reliable digital products for modern businesses." />
   <title>Oracto – SaaS, Web & Mobile App Development</title>
+  <link rel="icon" href="https://fav.farm/💡" />
   <style>
-    @import url('https://fonts.googleapis.com/css2?family=SF+Pro+Display:wght@400;500;600;700&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
 
+    :root {
+      --bg: #ffffff;
+      --text: #0f172a; /* slate-900 */
+      --muted: #475569; /* slate-600 */
+      --border: #e2e8f0; /* slate-200 */
+      --card: #f8fafc; /* slate-50 */
+      --brand: #111827; /* gray-900 */
+      --brand-2: #334155; /* slate-700 */
+      --accent: #0ea5e9; /* sky-500 */
+      --radius: 14px;
+      --container: 1200px;
+      --space: clamp(16px, 2vw, 24px);
+      --space-lg: clamp(36px, 6vw, 72px);
+    }
+
+    * { box-sizing: border-box; }
     body {
       margin: 0;
-      font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-      background: #fff;
-      color: #111;
-      overflow-x: hidden;
-    }
-
-    header {
-      text-align: center;
-      padding: 6rem 2rem 4rem;
-    }
-
-    header h1 {
-      font-size: 4rem;
-      font-weight: 700;
-      margin-bottom: 0.5rem;
-      background: linear-gradient(90deg, #111, #555);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-    }
-
-    header p {
-      font-size: 1.3rem;
-      color: #555;
-      max-width: 700px;
-      margin: 0 auto 2.5rem;
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+      background: var(--bg);
+      color: var(--text);
       line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
     }
 
-    .btn-primary {
-      background: #111;
-      color: #fff;
-      padding: 1rem 2.5rem;
-      border-radius: 50px;
-      font-size: 1.2rem;
-      text-decoration: none;
-      transition: all 0.3s ease;
-      display: inline-block;
-    }
-    .btn-primary:hover {
-      background: #333;
-      transform: scale(1.05);
-    }
+    a { color: inherit; text-decoration: none; }
+    img { max-width: 100%; height: auto; display: block; }
 
-    .section {
-      padding: 5rem 2rem;
-      text-align: center;
-      border-bottom: 1px solid #eee;
-    }
+    /* Layout */
+    .container { width: min(100% - 2rem, var(--container)); margin-inline: auto; }
+    section { padding: var(--space-lg) 0; }
 
-    .section h2 {
-      font-size: 2.5rem;
-      font-weight: 600;
-      margin-bottom: 1.5rem;
+    /* Top bar */
+    .nav {
+      position: sticky; top: 0; z-index: 10;
+      background: rgba(255,255,255,0.8);
+      backdrop-filter: saturate(180%) blur(10px);
+      border-bottom: 1px solid var(--border);
     }
+    .nav-inner { display: flex; align-items: center; justify-content: space-between; padding: 14px 0; }
+    .brand { display: flex; align-items: center; gap: 10px; font-weight: 700; letter-spacing: 0.2px; }
+    .brand-logo {
+      width: 36px; height: 36px; border-radius: 8px;
+      background: linear-gradient(135deg, var(--accent), #22c55e);
+    }
+    .nav-cta { display: inline-flex; align-items: center; gap: 8px; padding: 10px 16px; border: 1px solid var(--border); border-radius: 999px; color: var(--brand-2); }
+    .nav-cta:hover { border-color: #94a3b8; }
 
-    .features {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 2rem;
-      max-width: 1100px;
-      margin: 3rem auto 0;
-    }
+    /* Hero */
+    .hero { padding: calc(var(--space-lg) + 24px) 0 var(--space-lg); }
+    .hero-grid { display: grid; grid-template-columns: 1.15fr 1fr; gap: clamp(24px, 5vw, 56px); align-items: center; }
+    .eyebrow { display: inline-flex; align-items: center; gap: 10px; font-size: 0.85rem; color: var(--muted); }
+    .eyebrow::before { content: ""; width: 28px; height: 2px; background: var(--accent); border-radius: 2px; }
+    .hero h1 { font-size: clamp(2.2rem, 4.8vw, 3.5rem); line-height: 1.1; margin: 10px 0 12px; letter-spacing: -0.02em; }
+    .hero p { font-size: clamp(1rem, 1.4vw, 1.125rem); color: var(--muted); max-width: 48ch; }
+    .hero-actions { display: flex; gap: 12px; margin-top: 18px; flex-wrap: wrap; }
+    .btn-primary { background: var(--brand); color: #fff; padding: 12px 18px; border-radius: 10px; font-weight: 600; }
+    .btn-primary:hover { background: #0b1220; }
+    .btn-secondary { background: #fff; color: var(--brand-2); padding: 12px 18px; border-radius: 10px; border: 1px solid var(--border); }
+    .btn-secondary:hover { border-color: #94a3b8; }
 
-    .feature {
-      padding: 2rem;
-      border-radius: 20px;
-      background: #fafafa;
-      box-shadow: 0 4px 20px rgba(0,0,0,0.05);
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-    }
-    .feature:hover {
-      transform: translateY(-8px);
-      box-shadow: 0 10px 25px rgba(0,0,0,0.1);
-    }
+    .hero-visual { position: relative; }
+    .hero-img-wrapper { border-radius: 16px; overflow: hidden; box-shadow: 0 20px 40px rgba(2,6,23,0.12); border: 1px solid var(--border); }
+    .hero-logos { display: grid; grid-template-columns: repeat(6, 1fr); gap: 18px; margin-top: 16px; opacity: 0.8; }
+    .logo-tile { height: 40px; border: 1px dashed var(--border); border-radius: 10px; display: grid; place-items: center; font-size: 0.85rem; color: var(--muted); }
 
-    .feature h3 {
-      font-size: 1.5rem;
-      margin-bottom: 1rem;
-      color: #111;
-    }
-    .feature p {
-      color: #555;
-      font-size: 1rem;
-      line-height: 1.5;
-    }
+    /* Sections */
+    .section-head { text-align: center; margin-bottom: 28px; }
+    .section-head h2 { font-size: clamp(1.6rem, 3vw, 2.2rem); margin: 0 0 8px; letter-spacing: -0.01em; }
+    .section-head p { color: var(--muted); margin: 0 auto; max-width: 60ch; }
 
-    footer {
-      text-align: center;
-      padding: 2rem;
-      font-size: 0.9rem;
-      color: #666;
-      background: #f8f8f8;
+    .cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 18px; }
+    .card { background: var(--card); border: 1px solid var(--border); border-radius: var(--radius); padding: 18px; display: grid; gap: 8px; text-align: left; }
+    .card:hover { box-shadow: 0 10px 24px rgba(2,6,23,0.06); }
+    .card img { border-radius: 12px; aspect-ratio: 16/9; object-fit: cover; }
+    .card h3 { margin: 6px 0 4px; font-size: 1.1rem; }
+    .card p { margin: 0; color: var(--muted); font-size: 0.98rem; }
+
+    /* CTA */
+    .cta { background: linear-gradient(180deg, #f8fafc, #ffffff); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+    .cta-inner { display: grid; grid-template-columns: 1.2fr 1fr; gap: 24px; align-items: center; }
+    .cta .illustration { border-radius: 16px; overflow: hidden; border: 1px solid var(--border); }
+
+    /* Footer */
+    footer { border-top: 1px solid var(--border); padding: 20px 0; color: var(--muted); font-size: 0.95rem; }
+    .footer-inner { display: flex; justify-content: space-between; align-items: center; gap: 12px; flex-wrap: wrap; }
+
+    /* Small screens */
+    @media (max-width: 900px) {
+      .hero-grid, .cta-inner { grid-template-columns: 1fr; }
+      .hero { padding-top: var(--space-lg); }
+      .hero p { max-width: none; }
     }
   </style>
+  <!-- Preload a couple of images (placeholders) -->
+  <link rel="preload" as="image" href="https://images.unsplash.com/photo-1522075469751-3a6694fb2f61?q=80&w=1200&auto=format&fit=crop" />
+  <link rel="preload" as="image" href="https://images.unsplash.com/photo-1523961131990-5ea7c61b2107?q=80&w=1200&auto=format&fit=crop" />
 </head>
 <body>
 
+  <!-- Navigation -->
+  <nav class="nav">
+    <div class="container nav-inner">
+      <a class="brand" href="#">
+        <span class="brand-logo" aria-hidden="true"></span>
+        <span>Oracto</span>
+      </a>
+      <a class="nav-cta" href="mailto:info@oracto.com">info@oracto.com</a>
+    </div>
+  </nav>
+
   <!-- Hero -->
-  <header>
-    <h1>Oracto</h1>
-    <p>Building powerful SaaS platforms, web applications and mobile apps. We help businesses simplify operations, engage employees and scale effortlessly.</p>
-    <a href="mailto:javadkt@gmail.com" class="btn-primary">Contact Us</a>
+  <header class="hero">
+    <div class="container hero-grid">
+      <div>
+        <span class="eyebrow">Product engineering for growing teams</span>
+        <h1>We design and build SaaS, web and mobile apps your users will love</h1>
+        <p>From discovery to delivery, Oracto helps companies ship reliable, scalable software — faster. We focus on clean UX, solid architecture, and measurable outcomes.</p>
+        <div class="hero-actions">
+          <a href="mailto:info@oracto.com" class="btn-primary">Start a project</a>
+          <a href="#capabilities" class="btn-secondary">Our capabilities</a>
+        </div>
+      </div>
+      <div class="hero-visual">
+        <div class="hero-img-wrapper">
+          <img src="https://images.unsplash.com/photo-1522075469751-3a6694fb2f61?q=80&w=1600&auto=format&fit=crop" alt="Team collaborating around laptops" />
+        </div>
+        <div class="hero-logos">
+          <div class="logo-tile">Logo</div>
+          <div class="logo-tile">Logo</div>
+          <div class="logo-tile">Logo</div>
+          <div class="logo-tile">Logo</div>
+          <div class="logo-tile">Logo</div>
+          <div class="logo-tile">Logo</div>
+        </div>
+      </div>
+    </div>
   </header>
 
-  <!-- SaaS Solutions -->
-  <section class="section">
-    <h2>SaaS Solutions</h2>
-    <div class="features">
-      <div class="feature">
-        <h3>Team Collaboration</h3>
-        <p>Internal chat, group messaging, and a company feed for announcements and updates – all in one place.</p>
+  <!-- Capabilities / SaaS Solutions -->
+  <section id="capabilities">
+    <div class="container">
+      <div class="section-head">
+        <h2>SaaS capabilities</h2>
+        <p>Modular features we frequently implement to accelerate time‑to‑value for internal tools and customer‑facing platforms.</p>
       </div>
-      <div class="feature">
-        <h3>Time & Attendance</h3>
-        <p>GPS-enabled check-in/check-out, automated timesheets, and geofencing for accurate tracking.</p>
-      </div>
-      <div class="feature">
-        <h3>Leave Management</h3>
-        <p>Streamlined vacation and sick leave requests with simple approval workflows for managers.</p>
-      </div>
-      <div class="feature">
-        <h3>Task & Checklist</h3>
-        <p>Assign tasks, monitor progress, and ensure accountability with smart checklist tracking.</p>
-      </div>
-      <div class="feature">
-        <h3>Scheduling & Shifts</h3>
-        <p>Publish work schedules, notify staff instantly, and manage shift swaps with ease.</p>
-      </div>
-      <div class="feature">
-        <h3>Training & Onboarding</h3>
-        <p>Offer digital training courses, quizzes, and resources to onboard and upskill employees anytime.</p>
-      </div>
-      <div class="feature">
-        <h3>Housekeeping Operations</h3>
-        <p>Automated scheduling, reporting, and performance tracking for hospitality and facilities teams.</p>
-      </div>
-      <div class="feature">
-        <h3>Healthcare Systems</h3>
-        <p>Secure SaaS platforms for hospitals and clinics to manage staff, patients, and operations efficiently.</p>
+      <div class="cards">
+        <article class="card">
+          <img src="https://images.unsplash.com/photo-1553877522-43269d4ea984?q=80&w=1200&auto=format&fit=crop" alt="Collaboration dashboard" />
+          <h3>Team Collaboration</h3>
+          <p>Company feed, chat, and groups to align teams and streamline communication.</p>
+        </article>
+        <article class="card">
+          <img src="https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?q=80&w=1200&auto=format&fit=crop" alt="Time tracking interface" />
+          <h3>Time & Attendance</h3>
+          <p>GPS check‑ins, automated timesheets, and geofencing for accurate tracking.</p>
+        </article>
+        <article class="card">
+          <img src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?q=80&w=1200&auto=format&fit=crop" alt="Leave management" />
+          <h3>Leave Management</h3>
+          <p>Request, approve, and report on vacation and sick leave, with audit trails.</p>
+        </article>
+        <article class="card">
+          <img src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?q=80&w=1200&auto=format&fit=crop" alt="Tasks and checklists" />
+          <h3>Tasks & Checklists</h3>
+          <p>Track deliverables and accountability with clear owners and due dates.</p>
+        </article>
+        <article class="card">
+          <img src="https://images.unsplash.com/photo-1523958203904-cdcb402031fd?q=80&w=1200&auto=format&fit=crop" alt="Shift scheduling" />
+          <h3>Scheduling & Shifts</h3>
+          <p>Publish schedules, notify staff, and manage swaps with role‑based permissions.</p>
+        </article>
+        <article class="card">
+          <img src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d?q=80&w=1200&auto=format&fit=crop" alt="Training courses" />
+          <h3>Training & Onboarding</h3>
+          <p>Digital training, quizzes, and resources to upskill employees at scale.</p>
+        </article>
+        <article class="card">
+          <img src="https://images.unsplash.com/photo-1518773553398-650c184e0bb3?q=80&w=1200&auto=format&fit=crop" alt="Housekeeping operations" />
+          <h3>Housekeeping Ops</h3>
+          <p>Automated scheduling, reporting, and performance tracking for field teams.</p>
+        </article>
+        <article class="card">
+          <img src="https://images.unsplash.com/photo-1586773860418-d37222d8fce3?q=80&w=1200&auto=format&fit=crop" alt="Healthcare systems" />
+          <h3>Healthcare Systems</h3>
+          <p>Secure, compliant platforms for hospitals and clinics to run operations.</p>
+        </article>
       </div>
     </div>
   </section>
 
-  <!-- App Development -->
-  <section class="section">
-    <h2>Web & Mobile Applications</h2>
-    <div class="features">
-      <div class="feature">
-        <h3>iOS & Android Apps</h3>
-        <p>Intuitive, high-performance apps that deliver seamless user experiences across platforms.</p>
+  <!-- Services -->
+  <section id="services">
+    <div class="container">
+      <div class="section-head">
+        <h2>Web & Mobile Development</h2>
+        <p>Full‑stack teams delivering iOS, Android, and web apps with modern frameworks and cloud‑native infrastructure.</p>
       </div>
-      <div class="feature">
-        <h3>Enterprise Web Apps</h3>
-        <p>Scalable, secure web platforms designed to power modern businesses and organizations.</p>
+      <div class="cards">
+        <article class="card">
+          <img src="https://images.unsplash.com/photo-1551650975-87deedd944c3?q=80&w=1200&auto=format&fit=crop" alt="Mobile apps" />
+          <h3>iOS & Android Apps</h3>
+          <p>High‑performance native and cross‑platform apps with delightful UX.</p>
+        </article>
+        <article class="card">
+          <img src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?q=80&w=1200&auto=format&fit=crop" alt="Enterprise web" />
+          <h3>Enterprise Web Apps</h3>
+          <p>Secure, scalable systems that power mission‑critical workflows.</p>
+        </article>
+        <article class="card">
+          <img src="https://images.unsplash.com/photo-1522075469751-3a6694fb2f61?q=80&w=1200&auto=format&fit=crop" alt="Custom development" />
+          <h3>Custom Development</h3>
+          <p>From discovery to delivery and beyond — tailored to your business goals.</p>
+        </article>
       </div>
-      <div class="feature">
-        <h3>Custom Development</h3>
-        <p>From idea to execution, we design tailored solutions to meet your unique business challenges.</p>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta">
+    <div class="container cta-inner">
+      <div>
+        <h2>Have a project in mind?</h2>
+        <p style="color: var(--muted); max-width: 55ch;">Tell us about your goals. We’ll respond within one business day with next steps and a suggested approach.</p>
+        <div class="hero-actions">
+          <a href="mailto:info@oracto.com" class="btn-primary">Email us</a>
+          <a href="mailto:info@oracto.com" class="btn-secondary">info@oracto.com</a>
+        </div>
+      </div>
+      <div class="illustration">
+        <img src="https://images.unsplash.com/photo-1523961131990-5ea7c61b2107?q=80&w=1600&auto=format&fit=crop" alt="Design and development planning" />
       </div>
     </div>
   </section>
 
   <!-- Footer -->
   <footer>
-    &copy; 2025 Oracto. All rights reserved. | Contact: <a href="mailto:javadkt@gmail.com">javadkt@gmail.com</a>
+    <div class="container footer-inner">
+      <div>&copy; 2025 Oracto. All rights reserved.</div>
+      <div>Contact: <a href="mailto:info@oracto.com">info@oracto.com</a></div>
+    </div>
   </footer>
 
 </body>
