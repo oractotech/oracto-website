@@ -1,494 +1,984 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1"/>
-    <meta name="description"
-          content="Oracto builds professional SaaS platforms, web applications, and mobile apps. We design, develop, and scale reliable digital products for modern businesses."/>
-    <title>Oracto – SaaS, Web & Mobile App Development</title>
-    <link rel="icon" type="image/svg+xml" href='data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"%3E%3Crect width="64" height="64" rx="14" fill="%23111827"/%3E%3Ctext x="32" y="44" text-anchor="middle" font-family="Inter,Arial,sans-serif" font-size="40" font-weight="800" fill="white"%3EO%3C/text%3E%3C/svg%3E'/>
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <!-- Primary Meta Tags -->
+  <title>Relisto — Save Once. Reuse Anytime.</title>
+  <meta name="title" content="Relisto — Save Once. Reuse Anytime." />
+  <meta name="description" content="Relisto helps you create reusable lists and organized notes. Save items once, reuse them anytime, and keep your data private on your device." />
+  <meta name="keywords" content="reusable lists, organized notes, personal productivity, packing list, shopping checklist, private notes, local backup, no cloud notes, no login productivity app, iOS app" />
+  <meta name="author" content="Mohammed Javad" />
+  <link rel="canonical" href="https://relisto.app/" />
 
-        :root {
-            --bg: #ffffff;
-            --text: #0f172a; /* slate-900 */
-            --muted: #475569; /* slate-600 */
-            --border: #e2e8f0; /* slate-200 */
-            --card: #f8fafc; /* slate-50 */
-            --brand: #111827; /* gray-900 */
-            --brand-2: #334155; /* slate-700 */
-            --accent: #0ea5e9; /* sky-500 */
-            --radius: 14px;
-            --container: 1200px;
-            --space: clamp(16px, 2vw, 24px);
-            --space-lg: clamp(36px, 6vw, 72px);
-        }
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://relisto.app/" />
+  <meta property="og:title" content="Relisto — Save Once. Reuse Anytime." />
+  <meta property="og:description" content="Reusable lists and organized notes for the things you do, remember, and repeat every day. Private, on-device data with no account required." />
+  <meta property="og:image" content="./assets/screenshots/screenshot-1.png" />
 
-        * {
-            box-sizing: border-box;
-        }
+  <!-- Twitter / X -->
+  <meta property="twitter:card" content="summary_large_image" />
+  <meta property="twitter:url" content="https://relisto.app/" />
+  <meta property="twitter:title" content="Relisto — Save Once. Reuse Anytime." />
+  <meta property="twitter:description" content="Reusable lists and organized notes for the things you do, remember, and repeat every day. Private, on-device data with no account required." />
+  <meta property="twitter:image" content="./assets/screenshots/screenshot-1.png" />
 
-        body {
-            margin: 0;
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-            background: var(--bg);
-            color: var(--text);
-            line-height: 1.6;
-            -webkit-font-smoothing: antialiased;
-            -moz-osx-font-smoothing: grayscale;
-        }
+  <!-- Fonts & Stylesheet -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./css/style.css">
+  <link rel="icon" type="image/svg+xml" href="./public/favicon.svg">
 
-        a {
-            color: inherit;
-            text-decoration: none;
-        }
+  <!-- Embedded Dark Theme & Reset Styles for Instant File Protocol Rendering -->
+  <style>
+    :root {
+      --bg-main: #07090E;
+      --bg-surface: #0E131F;
+      --bg-card: rgba(20, 26, 41, 0.75);
+      --bg-card-solid: #141A29;
+      --bg-card-hover: rgba(28, 36, 56, 0.9);
+      --border-subtle: rgba(255, 255, 255, 0.08);
+      --border-bright: rgba(255, 255, 255, 0.15);
+      --border-glow-blue: rgba(56, 189, 248, 0.35);
+      --accent-blue: #38BDF8;
+      --accent-blue-glow: rgba(56, 189, 248, 0.25);
+      --accent-mint: #34D399;
+      --accent-purple: #C084FC;
+      --accent-peach: #FB923C;
+      --text-primary: #F8FAFC;
+      --text-secondary: #CBD5E1;
+      --text-muted: #94A3B8;
+      --font-heading: 'Outfit', 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+      --font-sans: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+      --shadow-phone: 0 25px 60px -10px rgba(0, 0, 0, 0.9), 0 0 0 1px rgba(255, 255, 255, 0.12) inset;
+      --radius-md: 20px;
+      --radius-lg: 28px;
+      --radius-xl: 36px;
+      --radius-full: 9999px;
+      --container-max: 1200px;
+      --header-height: 80px;
+    }
 
-        img {
-            max-width: 100%;
-            height: auto;
-            display: block;
-        }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; font-size: 16px; -webkit-font-smoothing: antialiased; background-color: var(--bg-main); color: var(--text-primary); }
+    body { font-family: var(--font-sans); background: var(--bg-main); color: var(--text-primary); line-height: 1.6; overflow-x: hidden; }
+    
+    svg { display: inline-block; vertical-align: middle; flex-shrink: 0; max-width: 100%; }
+    img { display: block; max-width: 100%; height: auto; }
+    a { color: inherit; text-decoration: none; }
+    button, input, textarea { font: inherit; border: none; outline: none; background: none; }
+    button { cursor: pointer; }
 
-        /* Layout */
-        .container {
-            width: min(100% - 2rem, var(--container));
-            margin-inline: auto;
-        }
+    .container { width: 100%; max-width: var(--container-max); margin: 0 auto; padding: 0 1.5rem; }
+    .section { padding: 6rem 0; position: relative; }
 
-        section {
-            padding: var(--space-lg) 0;
-        }
+    .heading-xl { font-family: var(--font-heading); font-size: clamp(2.6rem, 5.5vw, 4.2rem); font-weight: 800; line-height: 1.12; letter-spacing: -0.02em; color: var(--text-primary); }
+    .heading-lg { font-family: var(--font-heading); font-size: clamp(2rem, 4vw, 3.2rem); font-weight: 800; line-height: 1.18; letter-spacing: -0.015em; color: var(--text-primary); }
+    .heading-md { font-family: var(--font-heading); font-size: clamp(1.4rem, 2.5vw, 2.1rem); font-weight: 700; line-height: 1.25; color: var(--text-primary); }
+    .subtitle { font-size: clamp(1.1rem, 2vw, 1.3rem); color: var(--text-secondary); line-height: 1.6; font-weight: 400; }
 
-        /* Top bar */
-        .nav {
-            position: sticky;
-            top: 0;
-            z-index: 10;
-            background: rgba(255, 255, 255, 0.8);
-            backdrop-filter: saturate(180%) blur(10px);
-            border-bottom: 1px solid var(--border);
-        }
+    .text-gradient-cyan { background: linear-gradient(135deg, #38BDF8 0%, #818CF8 50%, #C084FC 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+    .sparkle-icon { display: inline-block; color: #FACC15; vertical-align: middle; animation: pulseGlow 3s ease-in-out infinite alternate; }
+    @keyframes pulseGlow { 0% { transform: scale(0.9) rotate(0deg); opacity: 0.8; } 100% { transform: scale(1.2) rotate(15deg); opacity: 1; } }
 
-        .nav-inner {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            padding: 14px 0;
-        }
+    .navbar { position: fixed; top: 0; left: 0; right: 0; height: var(--header-height); z-index: 1000; transition: all 0.3s ease; background: rgba(7, 9, 14, 0.8); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); border-bottom: 1px solid var(--border-subtle); }
+    .navbar.scrolled { background: rgba(14, 19, 31, 0.95); box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5); }
+    .nav-container { display: flex; align-items: center; justify-content: space-between; height: 100%; }
 
-        .brand {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            font-weight: 700;
-            letter-spacing: 0.2px;
-        }
+    .brand-logo { display: flex; align-items: center; gap: 0.75rem; font-family: var(--font-heading); font-size: 1.5rem; font-weight: 800; color: var(--text-primary); }
+    .logo-badge { width: 42px; height: 42px; background: linear-gradient(135deg, rgba(56, 189, 248, 0.2), rgba(192, 132, 252, 0.2)); border: 1px solid rgba(56, 189, 248, 0.4); border-radius: 12px; display: flex; align-items: center; justify-content: center; }
 
-        .brand-logo {
-            width: 36px;
-            height: 36px;
-            border-radius: 8px;
-            background: url('data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"%3E%3Crect width="64" height="64" rx="14" fill="%23111827"/%3E%3Ctext x="32" y="44" text-anchor="middle" font-family="Inter,Arial,sans-serif" font-size="40" font-weight="800" fill="white"%3EO%3C/text%3E%3C/svg%3E') center/cover no-repeat;
-        }
+    .nav-links { display: flex; align-items: center; gap: 2rem; list-style: none; }
+    .nav-links a { font-weight: 600; font-size: 0.95rem; color: var(--text-secondary); transition: all 0.2s ease; }
+    .nav-links a:hover { color: var(--accent-blue); }
 
-        .nav-cta {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            padding: 10px 16px;
-            border: 1px solid var(--border);
-            border-radius: 999px;
-            color: var(--brand-2);
-        }
+    /* Button Padding Updates */
+    .btn-appstore { display: inline-flex; align-items: center; gap: 0.75rem; background: linear-gradient(135deg, #1E293B 0%, #0F172A 100%); color: var(--text-primary); padding: 0.95rem 1.85rem; border-radius: var(--radius-full); font-weight: 700; font-size: 1.05rem; border: 1px solid rgba(255, 255, 255, 0.18); box-shadow: 0 6px 24px rgba(0, 0, 0, 0.5); transition: all 0.3s ease; white-space: nowrap; }
+    .btn-appstore:hover { transform: translateY(-2px); border-color: var(--accent-blue); box-shadow: 0 0 25px var(--accent-blue-glow); }
+    
+    .btn-secondary { display: inline-flex; align-items: center; gap: 0.6rem; background: rgba(255, 255, 255, 0.06); color: var(--text-primary); padding: 0.95rem 1.75rem; border-radius: var(--radius-full); font-weight: 600; font-size: 1.05rem; border: 1px solid var(--border-subtle); transition: all 0.2s ease; white-space: nowrap; }
+    .btn-secondary:hover { background: rgba(255, 255, 255, 0.12); border-color: var(--border-bright); transform: translateY(-1px); }
 
-        .nav-cta:hover {
-            border-color: #94a3b8;
-        }
+    .mobile-toggle { display: none; flex-direction: column; justify-content: space-between; width: 28px; height: 20px; background: none; cursor: pointer; z-index: 1001; }
+    .mobile-toggle span { display: block; height: 3px; width: 100%; background-color: var(--text-primary); border-radius: 3px; transition: all 0.3s ease; }
+    .mobile-menu-drawer { display: none; position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: rgba(7, 9, 14, 0.98); backdrop-filter: blur(24px); z-index: 999; padding: 6rem 2rem 3rem; flex-direction: column; justify-content: space-between; transform: translateY(-100%); transition: transform 0.35s ease; }
+    .mobile-menu-drawer.open { display: flex; transform: translateY(0); }
+    .mobile-menu-links { list-style: none; display: flex; flex-direction: column; gap: 1.5rem; }
+    .mobile-menu-links a { font-family: var(--font-heading); font-size: 1.7rem; font-weight: 700; color: var(--text-primary); }
 
-        /* Hero */
-        .hero {
-            padding: calc(var(--space-lg) + 24px) 0 var(--space-lg);
-        }
+    @media (max-width: 900px) { .nav-links { display: none; } .mobile-toggle { display: flex; } }
 
-        .hero-grid {
-            display: grid;
-            grid-template-columns: 1.15fr 1fr;
-            gap: clamp(24px, 5vw, 56px);
-            align-items: center;
-        }
+    .hero-section { padding-top: calc(var(--header-height) + 3.5rem); padding-bottom: 5.5rem; background: radial-gradient(circle at 50% 10%, rgba(56, 189, 248, 0.12) 0%, rgba(192, 132, 252, 0.08) 35%, rgba(7, 9, 14, 1) 80%); position: relative; overflow: hidden; }
+    .hero-grid { display: grid; grid-template-columns: 1.15fr 0.85fr; gap: 3.5rem; align-items: center; }
+    .hero-badge-group { display: flex; flex-wrap: wrap; gap: 0.75rem; margin-bottom: 1.5rem; }
+    .hero-badge { display: inline-flex; align-items: center; gap: 0.45rem; padding: 0.45rem 0.95rem; border-radius: var(--radius-full); font-size: 0.85rem; font-weight: 700; }
+    .badge-no-login { background: rgba(56, 189, 248, 0.12); color: var(--accent-blue); border: 1px solid rgba(56, 189, 248, 0.3); }
+    .badge-no-cloud { background: rgba(52, 211, 153, 0.12); color: var(--accent-mint); border: 1px solid rgba(52, 211, 153, 0.3); }
+    .badge-on-device { background: rgba(192, 132, 252, 0.12); color: var(--accent-purple); border: 1px solid rgba(192, 132, 252, 0.3); }
 
-        .eyebrow {
-            display: inline-flex;
-            align-items: center;
-            gap: 10px;
-            font-size: 0.85rem;
-            color: var(--muted);
-        }
+    .phone-mockup-wrapper { position: relative; display: flex; justify-content: center; align-items: center; }
+    .phone-frame { position: relative; width: 100%; max-width: 320px; background: #0F172A; border-radius: 46px; padding: 10px; box-shadow: var(--shadow-phone); transition: transform 0.4s ease, box-shadow 0.4s ease; border: 1px solid rgba(255, 255, 255, 0.18); }
+    .phone-frame:hover { transform: translateY(-6px); box-shadow: 0 30px 70px -10px rgba(56, 189, 248, 0.25); border-color: var(--accent-blue); }
+    .phone-screen { position: relative; width: 100%; border-radius: 36px; overflow: hidden; background: #090D16; aspect-ratio: 1290 / 2796; display: flex; flex-direction: column; }
+    .phone-screen img { width: 100%; height: 100%; object-fit: cover; }
 
-        .eyebrow::before {
-            content: "";
-            width: 28px;
-            height: 2px;
-            background: var(--accent);
-            border-radius: 2px;
-        }
+    /* Floating Pill Cards Repositioned comfortably beside Phone Mockup Frame */
+    .floating-accent-card { position: absolute; padding: 0.85rem 1.25rem; border-radius: var(--radius-md); background: rgba(20, 26, 41, 0.9); backdrop-filter: blur(14px); display: flex; align-items: center; gap: 0.75rem; font-weight: 700; font-size: 0.9rem; z-index: 10; border: 1px solid var(--border-subtle); animation: floatCard 6s ease-in-out infinite; }
+    .card-top-left { top: 25%; left: -8%; border-color: rgba(52, 211, 153, 0.4); }
+    .card-bottom-right { bottom: 18%; right: -6%; border-color: rgba(251, 146, 60, 0.4); animation-delay: 3s; }
+    @keyframes floatCard { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-12px); } }
 
-        .hero h1 {
-            font-size: clamp(2.2rem, 4.8vw, 3.5rem);
-            line-height: 1.1;
-            margin: 10px 0 12px;
-            letter-spacing: -0.02em;
-        }
+    @media (max-width: 992px) {
+      .hero-grid { grid-template-columns: 1fr; text-align: center; }
+      .hero-badge-group, .hero-ctas, .hero-subtext { justify-content: center; }
+      .card-top-left, .card-bottom-right { display: none; }
+    }
 
-        .hero p {
-            font-size: clamp(1rem, 1.4vw, 1.125rem);
-            color: var(--muted);
-            max-width: 48ch;
-        }
+    .gallery-section { background: var(--bg-surface); border-top: 1px solid var(--border-subtle); border-bottom: 1px solid var(--border-subtle); }
+    .gallery-header { text-align: center; max-width: 680px; margin: 0 auto 3rem auto; }
+    .carousel-track { display: flex; gap: 1.75rem; overflow-x: auto; scroll-behavior: smooth; scroll-snap-type: x mandatory; padding: 1rem 0.5rem 2.5rem 0.5rem; scrollbar-width: none; }
+    .carousel-track::-webkit-scrollbar { display: none; }
+    .screenshot-card { flex: 0 0 290px; scroll-snap-align: center; background: var(--bg-card); border-radius: var(--radius-lg); padding: 1.25rem; border: 1px solid var(--border-subtle); transition: all 0.3s ease; cursor: pointer; display: flex; flex-direction: column; }
+    .screenshot-card:hover { transform: translateY(-8px); border-color: var(--accent-blue); background: var(--bg-card-hover); }
+    .card-image-holder { position: relative; width: 100%; aspect-ratio: 1290 / 2796; border-radius: var(--radius-md); overflow: hidden; background: #090D16; margin-bottom: 1rem; border: 1px solid var(--border-subtle); }
+    .card-image-holder img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s ease; }
 
-        .hero-actions {
-            display: flex;
-            gap: 12px;
-            margin-top: 18px;
-            flex-wrap: wrap;
-        }
+    .feature-card-wrapper { background: var(--bg-card); border-radius: var(--radius-xl); padding: 3.5rem; border: 1px solid var(--border-subtle); margin-bottom: 4rem; backdrop-filter: blur(16px); }
+    @media (max-width: 768px) { .feature-card-wrapper { padding: 2rem 1.25rem; } }
+    .feature-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 3.5rem; align-items: center; }
+    .feature-grid.reverse { grid-template-columns: 1fr 1fr; }
+    .feature-grid.reverse .feature-visual { order: -1; }
+    @media (max-width: 992px) { .feature-grid, .feature-grid.reverse { grid-template-columns: 1fr; } .feature-grid.reverse .feature-visual { order: 0; } }
 
-        .btn-primary {
-            background: var(--brand);
-            color: #fff;
-            padding: 12px 18px;
-            border-radius: 10px;
-            font-weight: 600;
-        }
+    .feature-tag { display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.4rem 1rem; border-radius: var(--radius-full); font-size: 0.85rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 1.25rem; }
+    .tag-mint { background: rgba(52, 211, 153, 0.12); color: var(--accent-mint); border: 1px solid rgba(52, 211, 153, 0.3); }
+    .tag-peach { background: rgba(251, 146, 60, 0.12); color: var(--accent-peach); border: 1px solid rgba(251, 146, 60, 0.3); }
+    .tag-blue { background: rgba(56, 189, 248, 0.12); color: var(--accent-blue); border: 1px solid rgba(56, 189, 248, 0.3); }
+    .tag-purple { background: rgba(192, 132, 252, 0.12); color: var(--accent-purple); border: 1px solid rgba(192, 132, 252, 0.3); }
 
-        .btn-primary:hover {
-            background: #0b1220;
-        }
+    .workflow-steps { display: flex; flex-wrap: wrap; gap: 0.6rem; margin: 1.75rem 0; }
+    .workflow-step { display: inline-flex; align-items: center; gap: 0.4rem; background: rgba(255, 255, 255, 0.05); padding: 0.5rem 0.9rem; border-radius: var(--radius-md); font-size: 0.88rem; font-weight: 600; color: var(--text-primary); border: 1px solid var(--border-subtle); }
+    .workflow-step span.num { width: 20px; height: 20px; background: var(--accent-mint); color: #000; border-radius: 50%; display: inline-flex; align-items: center; justify-content: center; font-size: 0.75rem; font-weight: 800; }
 
-        .btn-secondary {
-            background: #fff;
-            color: var(--brand-2);
-            padding: 12px 18px;
-            border-radius: 10px;
-            border: 1px solid var(--border);
-        }
+    .feature-list { list-style: none; margin: 1.5rem 0; display: flex; flex-direction: column; gap: 0.85rem; }
+    .feature-list li { display: flex; items: flex-start; gap: 0.75rem; font-size: 1.05rem; color: var(--text-secondary); }
+    .feature-list li svg { width: 20px; height: 20px; color: var(--accent-mint); flex-shrink: 0; margin-top: 3px; }
 
-        .btn-secondary:hover {
-            border-color: #94a3b8;
-        }
+    .feature-screen-frame { width: 100%; max-width: 310px; margin: 0 auto; border-radius: 40px; overflow: hidden; box-shadow: var(--shadow-phone); background: #090D16; border: 8px solid #0F172A; aspect-ratio: 1290 / 2796; }
+    .feature-screen-frame img { width: 100%; height: 100%; object-fit: cover; }
 
-        .hero-visual {
-            position: relative;
-        }
+    .simulator-card { background: linear-gradient(135deg, rgba(14, 19, 31, 0.9), rgba(20, 26, 41, 0.9)); border-radius: var(--radius-xl); padding: 3rem; border: 1px solid var(--border-glow-blue); margin: 3rem 0; }
+    .simulator-body { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; background: rgba(9, 13, 22, 0.8); border-radius: var(--radius-lg); padding: 2rem; border: 1px solid var(--border-subtle); }
+    @media (max-width: 768px) { .simulator-body { grid-template-columns: 1fr; } .simulator-card { padding: 2rem 1.25rem; } }
 
-        .hero-img-wrapper {
-            border-radius: 16px;
-            overflow: hidden;
-            box-shadow: 0 20px 40px rgba(2, 6, 23, 0.12);
-            border: 1px solid var(--border);
-        }
+    .sim-panel-title { font-family: var(--font-heading); font-size: 1.1rem; font-weight: 700; color: var(--text-primary); margin-bottom: 1rem; display: flex; align-items: center; justify-content: space-between; }
+    .sim-items-grid { display: flex; flex-wrap: wrap; gap: 0.6rem; }
+    .sim-item-btn { display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.6rem 1rem; border-radius: var(--radius-full); background: rgba(56, 189, 248, 0.12); border: 1px solid rgba(56, 189, 248, 0.3); color: var(--text-primary); font-weight: 600; font-size: 0.9rem; transition: all 0.2s ease; }
+    .sim-item-btn:hover { background: rgba(56, 189, 248, 0.25); transform: scale(1.03); }
+    .sim-item-btn.added { opacity: 0.4; cursor: not-allowed; transform: none; }
 
-        .hero-logos {
-            display: grid;
-            grid-template-columns: repeat(6, 1fr);
-            gap: 18px;
-            margin-top: 16px;
-            opacity: 0.8;
-        }
+    .sim-active-list { display: flex; flex-direction: column; gap: 0.6rem; min-height: 180px; }
+    .sim-active-row { display: flex; align-items: center; justify-content: space-between; padding: 0.6rem 1rem; border-radius: var(--radius-md); background: rgba(52, 211, 153, 0.12); border: 1px solid rgba(52, 211, 153, 0.3); }
+    .sim-clear-btn { display: inline-flex; align-items: center; gap: 0.4rem; font-size: 0.85rem; font-weight: 700; color: var(--accent-peach); background: rgba(251, 146, 60, 0.15); padding: 0.4rem 0.8rem; border-radius: var(--radius-full); border: 1px solid rgba(251, 146, 60, 0.3); }
 
-        .logo-tile {
-            height: 40px;
-            border: 1px dashed var(--border);
-            border-radius: 10px;
-            display: grid;
-            place-items: center;
-            font-size: 0.85rem;
-            color: var(--muted);
-        }
+    .usecases-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.75rem; margin-top: 3rem; }
+    @media (max-width: 900px) { .usecases-grid { grid-template-columns: repeat(2, 1fr); } }
+    @media (max-width: 576px) { .usecases-grid { grid-template-columns: 1fr; } }
+    .usecase-card { background: var(--bg-card); border-radius: var(--radius-lg); padding: 2rem; border: 1px solid var(--border-subtle); transition: all 0.3s ease; }
+    .usecase-card:hover { transform: translateY(-5px); border-color: var(--border-bright); }
 
-        /* Sections */
-        .section-head {
-            text-align: center;
-            margin-bottom: 28px;
-        }
+    .usecase-icon-box { width: 52px; height: 52px; border-radius: var(--radius-md); display: flex; align-items: center; justify-content: center; margin-bottom: 1.25rem; }
+    .uc-shopping { background: rgba(52, 211, 153, 0.15); color: var(--accent-mint); border: 1px solid rgba(52, 211, 153, 0.3); }
+    .uc-travel { background: rgba(56, 189, 248, 0.15); color: var(--accent-blue); border: 1px solid rgba(56, 189, 248, 0.3); }
+    .uc-work { background: rgba(192, 132, 252, 0.15); color: var(--accent-purple); border: 1px solid rgba(192, 132, 252, 0.3); }
+    .uc-home { background: rgba(251, 146, 60, 0.15); color: var(--accent-peach); border: 1px solid rgba(251, 146, 60, 0.3); }
+    .uc-workouts { background: rgba(250, 204, 21, 0.15); color: #FACC15; border: 1px solid rgba(250, 204, 21, 0.3); }
+    .uc-recipes { background: rgba(52, 211, 153, 0.15); color: var(--accent-mint); border: 1px solid rgba(52, 211, 153, 0.3); }
 
-        .section-head h2 {
-            font-size: clamp(1.6rem, 3vw, 2.2rem);
-            margin: 0 0 8px;
-            letter-spacing: -0.01em;
-        }
+    .how-it-works-steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; margin-top: 3.5rem; }
+    @media (max-width: 900px) { .how-it-works-steps { grid-template-columns: 1fr; } }
+    .step-card { background: var(--bg-card); border-radius: var(--radius-lg); padding: 2.25rem 1.75rem; border: 1px solid var(--border-subtle); text-align: center; }
+    .step-num-badge { width: 48px; height: 48px; border-radius: 50%; background: linear-gradient(135deg, var(--accent-blue), var(--accent-purple)); color: #000; font-family: var(--font-heading); font-size: 1.25rem; font-weight: 800; display: flex; align-items: center; justify-content: center; margin: 0 auto 1.25rem auto; }
 
-        .section-head p {
-            color: var(--muted);
-            margin: 0 auto;
-            max-width: 60ch;
-        }
+    .privacy-card-banner { background: linear-gradient(135deg, #0F172A 0%, #1E293B 100%); border-radius: var(--radius-xl); padding: 4rem 3rem; color: white; border: 1px solid var(--border-bright); }
+    @media (max-width: 768px) { .privacy-card-banner { padding: 2.5rem 1.5rem; } }
+    .privacy-points-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; }
+    @media (max-width: 768px) { .privacy-points-grid { grid-template-columns: 1fr; } }
+    .privacy-point { background: rgba(255, 255, 255, 0.04); border: 1px solid rgba(255, 255, 255, 0.08); border-radius: var(--radius-lg); padding: 1.75rem; }
 
-        .cards {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-            gap: 18px;
-        }
+    .cta-section { background: radial-gradient(circle at 50% 50%, rgba(56, 189, 248, 0.15) 0%, rgba(7, 9, 14, 1) 75%); text-align: center; padding: 6rem 1.5rem; }
+    .cta-box { max-width: 700px; margin: 0 auto; }
 
-        .card {
-            background: var(--card);
-            border: 1px solid var(--border);
-            border-radius: var(--radius);
-            padding: 18px;
-            display: grid;
-            gap: 8px;
-            text-align: left;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
+    .footer { background: var(--bg-surface); border-top: 1px solid var(--border-subtle); padding: 4rem 0 2.5rem 0; }
+    .footer-top { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 2rem; margin-bottom: 3rem; padding-bottom: 2.5rem; border-bottom: 1px solid var(--border-subtle); }
+    .footer-brand { max-width: 320px; }
+    .footer-links { display: flex; gap: 2rem; list-style: none; }
+    .footer-links a { font-size: 0.95rem; font-weight: 600; color: var(--text-secondary); }
+    .footer-bottom { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; font-size: 0.88rem; color: var(--text-muted); }
+    @media (max-width: 768px) { .footer-top, .footer-bottom { flex-direction: column; text-align: center; } .footer-links { flex-wrap: wrap; justify-content: center; } }
 
-        .card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 10px 25px rgba(2, 6, 23, 0.10);
-        }
+    .lightbox-modal { display: none; position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; background: rgba(0, 0, 0, 0.92); backdrop-filter: blur(16px); z-index: 2000; align-items: center; justify-content: center; padding: 2rem; opacity: 0; transition: opacity 0.3s ease; }
+    .lightbox-modal.active { display: flex; opacity: 1; }
+    .lightbox-container { position: relative; max-width: 880px; width: 100%; max-height: 90vh; display: flex; gap: 2.5rem; align-items: center; background: var(--bg-card-solid); border-radius: var(--radius-xl); padding: 2rem; border: 1px solid var(--border-bright); }
+    @media (max-width: 768px) { .lightbox-container { flex-direction: column; max-height: 85vh; overflow-y: auto; padding: 1.5rem; gap: 1.25rem; } }
+    .lightbox-img-wrapper { position: relative; width: 290px; aspect-ratio: 1290 / 2796; border-radius: var(--radius-md); overflow: hidden; background: #000; flex-shrink: 0; }
+    .lightbox-img-wrapper img { width: 100%; height: 100%; object-fit: cover; }
+    .lightbox-details { flex: 1; }
+    .lightbox-num { font-size: 0.85rem; font-weight: 800; letter-spacing: 0.08em; text-transform: uppercase; color: var(--accent-blue); margin-bottom: 0.5rem; }
+    .lightbox-title { font-family: var(--font-heading); font-size: 1.75rem; font-weight: 800; color: var(--text-primary); margin-bottom: 0.75rem; }
+    .lightbox-desc { font-size: 1.05rem; color: var(--text-secondary); line-height: 1.6; margin-bottom: 2rem; }
+    .lightbox-controls { display: flex; gap: 1rem; align-items: center; }
+    .lightbox-btn { width: 44px; height: 44px; border-radius: 50%; background: rgba(255, 255, 255, 0.1); border: 1px solid var(--border-subtle); display: flex; align-items: center; justify-content: center; color: var(--text-primary); }
+    .lightbox-btn:hover { background: var(--accent-blue); color: #000; }
+    .lightbox-close { position: absolute; top: 1.5rem; right: 1.5rem; width: 36px; height: 36px; border-radius: 50%; background: rgba(255, 255, 255, 0.1); display: flex; align-items: center; justify-content: center; color: var(--text-primary); cursor: pointer; }
 
-        .card img {
-            border-radius: 12px;
-            aspect-ratio: 16/9;
-            object-fit: cover;
-            transition: transform 0.3s ease;
-        }
+    .legal-modal { display: none; position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; background: rgba(0, 0, 0, 0.85); backdrop-filter: blur(12px); z-index: 2000; align-items: center; justify-content: center; padding: 2rem; }
+    .legal-modal.active { display: flex; }
+    .legal-container { background: var(--bg-card-solid); max-width: 650px; width: 100%; max-height: 85vh; border-radius: var(--radius-xl); padding: 2.5rem; border: 1px solid var(--border-bright); overflow-y: auto; position: relative; }
+    .legal-title { font-family: var(--font-heading); font-size: 1.75rem; font-weight: 800; margin-bottom: 1.25rem; color: var(--text-primary); }
+    .legal-body { font-size: 0.95rem; color: var(--text-secondary); line-height: 1.65; }
+    .support-form-group { margin-bottom: 1.25rem; }
+    .support-form-group label { display: block; font-size: 0.9rem; font-weight: 600; margin-bottom: 0.4rem; color: var(--text-primary); }
+    .support-form-group input, .support-form-group textarea { width: 100%; padding: 0.75rem 1rem; border-radius: var(--radius-md); border: 1px solid var(--border-subtle); background: rgba(255, 255, 255, 0.05); color: white; font-size: 0.95rem; }
+  </style>
 
-        .card:hover img {
-            transform: scale(1.03);
-        }
-
-        .card h3 {
-            margin: 6px 0 4px;
-            font-size: 1.1rem;
-        }
-
-        .card p {
-            margin: 0;
-            color: var(--muted);
-            font-size: 0.98rem;
-        }
-
-        /* CTA */
-        .cta {
-            background: linear-gradient(180deg, #f8fafc, #ffffff);
-            border-top: 1px solid var(--border);
-            border-bottom: 1px solid var(--border);
-        }
-
-        .cta-inner {
-            display: grid;
-            grid-template-columns: 1.2fr 1fr;
-            gap: 24px;
-            align-items: center;
-        }
-
-        .cta .illustration {
-            border-radius: 16px;
-            overflow: hidden;
-            border: 1px solid var(--border);
-        }
-
-        /* Footer */
-        footer {
-            border-top: 1px solid var(--border);
-            padding: 20px 0;
-            color: var(--muted);
-            font-size: 0.95rem;
-        }
-
-        .footer-inner {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            gap: 12px;
-            flex-wrap: wrap;
-        }
-
-        /* Small screens */
-        @media (max-width: 900px) {
-            .hero-grid, .cta-inner {
-                grid-template-columns: 1fr;
-            }
-
-            .hero {
-                padding-top: var(--space-lg);
-            }
-
-            .hero p {
-                max-width: none;
-            }
-        }
-    </style>
-    <!-- Preload a couple of images (placeholders) -->
-    <link rel="preload" as="image"
-          href="https://images.unsplash.com/photo-1522075469751-3a6694fb2f61?q=80&w=1200&auto=format&fit=crop"/>
-    <link rel="preload" as="image"
-          href="https://images.unsplash.com/photo-1523961131990-5ea7c61b2107?q=80&w=1200&auto=format&fit=crop"/>
+  <!-- Schema.org Structured Data -->
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "SoftwareApplication",
+      "name": "Relisto",
+      "operatingSystem": "iOS",
+      "applicationCategory": "ProductivityApplication",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD"
+      },
+      "description": "Relisto lets users create reusable lists for shopping, travel, work, home, workouts, and packing. Save frequently used items once and reuse them anytime with total local privacy.",
+      "author": {
+        "@type": "Person",
+        "name": "Mohammed Javad"
+      }
+    }
+  </script>
 </head>
 <body>
 
-<!-- Navigation -->
-<nav class="nav">
-    <div class="container nav-inner">
-        <a class="brand" href="#">
-            <span class="brand-logo" aria-hidden="true"></span>
-            <span>Oracto</span>
+  <!-- =========================================================================
+       Navigation Header
+       ========================================================================= -->
+  <header class="navbar" id="navbar">
+    <div class="container nav-container">
+      <a href="#" class="brand-logo" aria-label="Relisto Home">
+        <div class="logo-badge">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="8" y1="6" x2="21" y2="6"></line>
+            <line x1="8" y1="12" x2="21" y2="12"></line>
+            <line x1="8" y1="18" x2="21" y2="18"></line>
+            <line x1="3" y1="6" x2="3.01" y2="6"></line>
+            <line x1="3" y1="12" x2="3.01" y2="12"></line>
+            <line x1="3" y1="18" x2="3.01" y2="18"></line>
+          </svg>
+        </div>
+        Relisto
+      </a>
+
+      <ul class="nav-links">
+        <li><a href="#features">Features</a></li>
+        <li><a href="#how-it-works">How It Works</a></li>
+        <li><a href="#screenshots">Screenshots</a></li>
+        <li><a href="#privacy">Privacy</a></li>
+        <li><a href="#" data-modal="support">Support</a></li>
+      </ul>
+
+      <div class="nav-actions">
+        <a href="#download" class="btn-appstore">
+          <svg width="20" height="20" viewBox="0 0 384 512" fill="currentColor">
+            <path d="M318.7 268.7c-.2-36.7 16.4-64.4 50-84.8-18.8-26.9-47.2-41.7-84.7-44.6-35.5-2.8-74.3 20.7-88.5 20.7-15 0-49.4-19.7-76.4-19.7C63.3 141.2 4 184.8 4 273.5q0 39.3 14.4 81.2c12.8 36.7 59 126.7 107.2 125.2 25.2-.6 43-17.9 75.8-17.9 31.8 0 48.3 17.9 76.4 17.9 48.6-.7 90.4-82.5 102.6-119.3-65.2-30.7-61.7-90-61.7-92.1zm-57.8-164.1c27.3-32.4 24.8-61.9 24-72.5-24.1 1.4-52 16.4-67.9 34.9-17.5 19.8-27.8 44.3-25.6 71.9 26.1 2 52.3-13.7 69.5-34.3z"/>
+          </svg>
+          Download App
         </a>
-        <a class="nav-cta" href="mailto:info@oracto.com">info@oracto.com</a>
+        <button class="mobile-toggle" id="mobile-toggle" aria-label="Toggle Navigation Menu">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
     </div>
-</nav>
+  </header>
 
-
-<!-- Hero -->
-<header class="hero">
-    <div class="container hero-grid">
-        <div>
-            <h1>Oracto</h1>
-            <span class="eyebrow">Product engineering for growing teams</span>
-            <h1>We design and build SaaS, web and mobile apps your users will love</h1>
-            <p>From discovery to delivery, Oracto helps companies ship reliable, scalable software — faster. We focus on
-                clean UX, solid architecture, and measurable outcomes.</p>
-            <div class="hero-actions">
-                <a href="mailto:info@oracto.com" class="btn-primary">Start a project</a>
-                <a href="#capabilities" class="btn-secondary">Our capabilities</a>
-            </div>
-        </div>
-        <div class="hero-visual">
-            <div class="hero-img-wrapper">
-                <img src="https://images.unsplash.com/photo-1522075469751-3a6694fb2f61?q=80&w=1600&auto=format&fit=crop"
-                     alt="Team collaborating around laptops"/>
-            </div>
-            <!--        <div class="hero-logos">-->
-            <!--          <div class="logo-tile">Logo</div>-->
-            <!--          <div class="logo-tile">Logo</div>-->
-            <!--          <div class="logo-tile">Logo</div>-->
-            <!--          <div class="logo-tile">Logo</div>-->
-            <!--          <div class="logo-tile">Logo</div>-->
-            <!--          <div class="logo-tile">Logo</div>-->
-            <!--        </div>-->
-        </div>
+  <!-- Mobile Drawer Menu -->
+  <div class="mobile-menu-drawer" id="mobile-drawer">
+    <ul class="mobile-menu-links">
+      <li><a href="#features">Features</a></li>
+      <li><a href="#how-it-works">How It Works</a></li>
+      <li><a href="#screenshots">Screenshots</a></li>
+      <li><a href="#privacy">Privacy</a></li>
+      <li><a href="#" data-modal="support">Support</a></li>
+    </ul>
+    <div style="margin-top: 2rem;">
+      <a href="#download" class="btn-appstore" style="width: 100%; justify-content: center;">
+        <svg width="20" height="20" viewBox="0 0 384 512" fill="currentColor">
+          <path d="M318.7 268.7c-.2-36.7 16.4-64.4 50-84.8-18.8-26.9-47.2-41.7-84.7-44.6-35.5-2.8-74.3 20.7-88.5 20.7-15 0-49.4-19.7-76.4-19.7C63.3 141.2 4 184.8 4 273.5q0 39.3 14.4 81.2c12.8 36.7 59 126.7 107.2 125.2 25.2-.6 43-17.9 75.8-17.9 31.8 0 48.3 17.9 76.4 17.9 48.6-.7 90.4-82.5 102.6-119.3-65.2-30.7-61.7-90-61.7-92.1zm-57.8-164.1c27.3-32.4 24.8-61.9 24-72.5-24.1 1.4-52 16.4-67.9 34.9-17.5 19.8-27.8 44.3-25.6 71.9 26.1 2 52.3-13.7 69.5-34.3z"/>
+        </svg>
+        Download on App Store
+      </a>
     </div>
-</header>
+  </div>
 
-<!-- Capabilities / SaaS Solutions -->
-<section id="capabilities">
+  <!-- =========================================================================
+       Hero Section
+       ========================================================================= -->
+  <section class="hero-section">
     <div class="container">
-        <div class="section-head">
-            <h2>SaaS capabilities</h2>
-            <p>Modular features we frequently implement to accelerate time‑to‑value for internal tools and
-                customer‑facing platforms.</p>
-        </div>
-        <div class="cards">
-            <article class="card">
-                <img src="https://images.unsplash.com/photo-1553877522-43269d4ea984?q=80&w=1200&auto=format&fit=crop"
-                     alt="Team collaborating in front of a dashboard"/>
-                <h3>Team Collaboration</h3>
-                <p>Company feed, chat, and groups to align teams and streamline communication.</p>
-            </article>
-            <article class="card">
-                <img src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?q=80&w=1200&auto=format&fit=crop"
-                     alt="Smartwatch showing time to represent attendance tracking"/>
-                <h3>Time & Attendance</h3>
-                <p>GPS check‑ins, automated timesheets, and geofencing for accurate tracking.</p>
-            </article>
-            <article class="card">
-                <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?q=80&w=1200&auto=format&fit=crop"
-                     alt="Beach vacation representing leave"/>
-                <h3>Leave Management</h3>
-                <p>Request, approve, and report on vacation and sick leave, with audit trails.</p>
-            </article>
-            <article class="card">
-                <img src="https://images.unsplash.com/photo-1512758017271-d7b84c2113f1?q=80&w=1200&auto=format&fit=crop"
-                     alt="Planner notebook with checklist"/>
-                <h3>Tasks & Checklists</h3>
-                <p>Track deliverables and accountability with clear owners and due dates.</p>
-            </article>
-            <article class="card">
-                <img src="https://images.unsplash.com/photo-1518085250887-2f903c200fee?q=80&w=1200&auto=format&fit=crop"
-                     alt="Calendar representing shift scheduling"/>
-                <h3>Scheduling & Shifts</h3>
-                <p>Publish schedules, notify staff, and manage swaps with role‑based permissions.</p>
-            </article>
-            <article class="card">
-                <img src="https://images.unsplash.com/photo-1513258496099-48168024aec0?q=80&w=1200&auto=format&fit=crop"
-                     alt="Online learning on a laptop for training"/>
-                <h3>Training & Onboarding</h3>
-                <p>Digital training, quizzes, and resources to upskill employees at scale.</p>
-            </article>
-            <article class="card">
-                <img src="https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?q=80&w=1200&auto=format&fit=crop"
-                     alt="Cleaning supplies for housekeeping operations"/>
-                <h3>Housekeeping Ops</h3>
-                <p>Automated scheduling, reporting, and performance tracking for field teams.</p>
-            </article>
-            <article class="card">
-                <img src="https://images.unsplash.com/photo-1586773860418-d37222d8fce3?q=80&w=1200&auto=format&fit=crop"
-                     alt="Healthcare systems"/>
-                <h3>Healthcare Systems</h3>
-                <p>Secure, compliant platforms for hospitals and clinics to run operations.</p>
-            </article>
-        </div>
-    </div>
-</section>
+      <div class="hero-grid">
+        <div class="hero-content">
+          <div class="hero-badge-group">
+            <span class="hero-badge badge-no-login">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>
+              No Login
+            </span>
+            <span class="hero-badge badge-no-cloud">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 10h-1.26A8 8 0 1 0 9 20h9a5 5 0 0 0 0-10z"></path><line x1="2" y1="2" x2="22" y2="22"></line></svg>
+              No Cloud
+            </span>
+            <span class="hero-badge badge-on-device">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><rect x="5" y="2" width="14" height="20" rx="2" ry="2"></rect><line x1="12" y1="18" x2="12.01" y2="18"></line></svg>
+              Your Data Stays on Your Device
+            </span>
+          </div>
 
-<!-- Services -->
-<section id="services">
-    <div class="container">
-        <div class="section-head">
-            <h2>Web & Mobile Development</h2>
-            <p>Full‑stack teams delivering iOS, Android, and web apps with modern frameworks and cloud‑native
-                infrastructure.</p>
-        </div>
-        <div class="cards">
-            <article class="card">
-                <img src="https://images.unsplash.com/photo-1551650975-87deedd944c3?q=80&w=1200&auto=format&fit=crop"
-                     alt="Mobile apps"/>
-                <h3>iOS & Android Apps</h3>
-                <p>High‑performance native and cross‑platform apps with delightful UX.</p>
-            </article>
-            <article class="card">
-                <img src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?q=80&w=1200&auto=format&fit=crop"
-                     alt="Enterprise web"/>
-                <h3>Enterprise Web Apps</h3>
-                <p>Secure, scalable systems that power mission‑critical workflows.</p>
-            </article>
-            <article class="card">
-                <img src="https://images.unsplash.com/photo-1522075469751-3a6694fb2f61?q=80&w=1200&auto=format&fit=crop"
-                     alt="Custom development"/>
-                <h3>Custom Development</h3>
-                <p>From discovery to delivery and beyond — tailored to your business goals.</p>
-            </article>
-        </div>
-    </div>
-</section>
+          <h1 class="heading-xl">
+            Save once.<br>
+            <span class="text-gradient-cyan">Reuse anytime.</span>
+            <span class="sparkle-icon">✦</span>
+          </h1>
 
-<!-- CTA -->
-<section class="cta">
-    <div class="container cta-inner">
-        <div>
-            <h2>Have a project in mind?</h2>
-            <p style="color: var(--muted); max-width: 55ch;">Tell us about your goals. We’ll respond within one business
-                day with next steps and a suggested approach.</p>
-            <div class="hero-actions">
-                <a href="mailto:info@oracto.com" class="btn-primary">Email us</a>
-                <a href="mailto:info@oracto.com" class="btn-secondary">info@oracto.com</a>
+          <p class="subtitle">
+            Reusable lists and organized notes for the things you do, remember, and repeat every day.
+          </p>
+
+          <div class="hero-ctas">
+            <a href="#download" class="btn-appstore">
+              <svg width="22" height="22" viewBox="0 0 384 512" fill="currentColor">
+                <path d="M318.7 268.7c-.2-36.7 16.4-64.4 50-84.8-18.8-26.9-47.2-41.7-84.7-44.6-35.5-2.8-74.3 20.7-88.5 20.7-15 0-49.4-19.7-76.4-19.7C63.3 141.2 4 184.8 4 273.5q0 39.3 14.4 81.2c12.8 36.7 59 126.7 107.2 125.2 25.2-.6 43-17.9 75.8-17.9 31.8 0 48.3 17.9 76.4 17.9 48.6-.7 90.4-82.5 102.6-119.3-65.2-30.7-61.7-90-61.7-92.1zm-57.8-164.1c27.3-32.4 24.8-61.9 24-72.5-24.1 1.4-52 16.4-67.9 34.9-17.5 19.8-27.8 44.3-25.6 71.9 26.1 2 52.3-13.7 69.5-34.3z"/>
+              </svg>
+              Download on the App Store
+            </a>
+            <a href="#how-it-works" class="btn-secondary">
+              See how it works
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+            </a>
+          </div>
+
+          <div class="hero-subtext">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#34D399" stroke-width="3"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            Free on iOS &bull; 100% Private Local Storage &bull; Instant Setup
+          </div>
+        </div>
+
+        <!-- Hero iPhone Mockup Frame -->
+        <div class="phone-mockup-wrapper">
+          <div class="floating-accent-card card-top-left">
+            <span style="font-size: 1.2rem;">🛒</span> Reusable Lists
+          </div>
+          <div class="floating-accent-card card-bottom-right">
+            <span style="font-size: 1.2rem;">📝</span> Grouped Notes
+          </div>
+
+          <div class="phone-frame">
+            <div class="phone-screen">
+              <img src="./assets/screenshots/screenshot-1.png" alt="Relisto Home Category Screen" width="1290" height="2796">
             </div>
+          </div>
         </div>
-        <div class="illustration">
-            <img src="https://images.unsplash.com/photo-1523961131990-5ea7c61b2107?q=80&w=1600&auto=format&fit=crop"
-                 alt="Design and development planning"/>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================================
+       App Store Screenshots Marketing Gallery Section
+       ========================================================================= -->
+  <section class="section gallery-section" id="screenshots">
+    <div class="container">
+      <div class="gallery-header">
+        <span class="feature-tag tag-blue">App Store Gallery</span>
+        <h2 class="heading-lg">See Relisto in Action</h2>
+        <p class="subtitle" style="margin-top: 0.5rem;">
+          5 portrait App Store screenshots (1290 × 2796 px). Tap any card to view full resolution.
+        </p>
+      </div>
+
+      <div class="gallery-carousel-wrapper">
+        <button class="carousel-nav-btn carousel-prev" id="carousel-prev-btn" aria-label="Previous Screenshot">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="15 18 9 12 15 6"></polyline></svg>
+        </button>
+
+        <div class="carousel-track" id="carousel-track">
+          <!-- Card 1 -->
+          <div class="screenshot-card" data-id="0">
+            <div class="card-image-holder">
+              <img src="./assets/screenshots/screenshot-1.png" alt="Relisto Reusable Lists Screenshot">
+              <div class="zoom-badge">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line><line x1="11" y1="8" x2="11" y2="14"></line><line x1="8" y1="11" x2="14" y2="11"></line></svg>
+                Enlarge
+              </div>
+            </div>
+            <div class="card-content">
+              <div class="card-num">Screenshot 1</div>
+              <h3 class="card-title">Save once. Reuse anytime.</h3>
+              <p class="card-desc">Keep your regular items ready instead of typing them again.</p>
+            </div>
+          </div>
+
+          <!-- Card 2 -->
+          <div class="screenshot-card" data-id="1">
+            <div class="card-image-holder">
+              <img src="./assets/screenshots/screenshot-2.png" alt="Relisto Building a List Screenshot">
+              <div class="zoom-badge">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line><line x1="11" y1="8" x2="11" y2="14"></line><line x1="8" y1="11" x2="14" y2="11"></line></svg>
+                Enlarge
+              </div>
+            </div>
+            <div class="card-content">
+              <div class="card-num">Screenshot 2</div>
+              <h3 class="card-title">Just pick what you need.</h3>
+              <p class="card-desc">Add saved items to your list with a quick tap or drag.</p>
+            </div>
+          </div>
+
+          <!-- Card 3 -->
+          <div class="screenshot-card" data-id="2">
+            <div class="card-image-holder">
+              <img src="./assets/screenshots/screenshot-3.png" alt="Relisto Grouped Notes Screenshot">
+              <div class="zoom-badge">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line><line x1="11" y1="8" x2="11" y2="14"></line><line x1="8" y1="11" x2="14" y2="11"></line></svg>
+                Enlarge
+              </div>
+            </div>
+            <div class="card-content">
+              <div class="card-num">Screenshot 3</div>
+              <h3 class="card-title">Keep related notes together.</h3>
+              <p class="card-desc">Organize workouts, recipes, ideas, references, and more by category.</p>
+            </div>
+          </div>
+
+          <!-- Card 4 -->
+          <div class="screenshot-card" data-id="3">
+            <div class="card-image-holder">
+              <img src="./assets/screenshots/screenshot-4.png" alt="Relisto Simple Notes Screenshot">
+              <div class="zoom-badge">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line><line x1="11" y1="8" x2="11" y2="14"></line><line x1="8" y1="11" x2="14" y2="11"></line></svg>
+                Enlarge
+              </div>
+            </div>
+            <div class="card-content">
+              <div class="card-num">Screenshot 4</div>
+              <h3 class="card-title">Write it down. Find it easily.</h3>
+              <p class="card-desc">Keep notes simple with easy editing, and pin important ones for instant access.</p>
+            </div>
+          </div>
+
+          <!-- Card 5 -->
+          <div class="screenshot-card" data-id="4">
+            <div class="card-image-holder">
+              <img src="./assets/screenshots/screenshot-5.png" alt="Relisto Backup and Restore Screenshot">
+              <div class="zoom-badge">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line><line x1="11" y1="8" x2="11" y2="14"></line><line x1="8" y1="11" x2="14" y2="11"></line></svg>
+                Enlarge
+              </div>
+            </div>
+            <div class="card-content">
+              <div class="card-num">Screenshot 5</div>
+              <h3 class="card-title">Your data. Always in your hands.</h3>
+              <p class="card-desc">Keep everything on your device and create your own backups to restore whenever you need.</p>
+            </div>
+          </div>
         </div>
-    </div>
-</section>
 
-<!-- Footer -->
-<footer>
-    <div class="container footer-inner">
-        <div>&copy; 2025 Oracto. All rights reserved.</div>
-        <div>Contact: <a href="mailto:info@oracto.com">info@oracto.com</a></div>
+        <button class="carousel-nav-btn carousel-next" id="carousel-next-btn" aria-label="Next Screenshot">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"></polyline></svg>
+        </button>
+      </div>
     </div>
-</footer>
+  </section>
 
+  <!-- =========================================================================
+       Feature Section 1 — Reusable Lists
+       ========================================================================= -->
+  <section class="section" id="features">
+    <div class="container">
+      <div class="feature-card-wrapper">
+        <div class="feature-grid">
+          <div class="feature-text">
+            <span class="feature-tag tag-mint">Reusable Lists</span>
+            <h2 class="heading-lg">Stop typing the same things again.</h2>
+            <p class="subtitle" style="margin-top: 0.75rem;">
+              Save your everyday items once and reuse them whenever you need them. No more re-entering your weekly groceries or packing list.
+            </p>
+
+            <div class="workflow-steps">
+              <div class="workflow-step"><span class="num">1</span> Save items</div>
+              <div class="workflow-step"><span class="num">2</span> Start a list</div>
+              <div class="workflow-step"><span class="num">3</span> Pick what you need</div>
+              <div class="workflow-step"><span class="num">4</span> Complete</div>
+              <div class="workflow-step"><span class="num">5</span> Reuse next time</div>
+            </div>
+
+            <ul class="feature-list">
+              <li>
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                <span><strong>Predefined Master Library:</strong> Store frequently purchased or packed items permanently in your category.</span>
+              </li>
+              <li>
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                <span><strong>One-Tap Active List:</strong> Tap items from your predefined library into your active list in seconds.</span>
+              </li>
+              <li>
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                <span><strong>Clear Without Losing Data:</strong> Clear finished items from your active list when complete—your master items stay ready for next time.</span>
+              </li>
+            </ul>
+          </div>
+
+          <div class="feature-visual">
+            <div class="feature-screen-frame">
+              <img src="./assets/screenshots/screenshot-2.png" alt="Relisto Building a List Screen">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================================
+       Interactive Relisto Demo Simulator Widget
+       ========================================================================= -->
+  <section class="section" style="padding-top: 0;">
+    <div class="container">
+      <div class="simulator-card">
+        <div class="simulator-header">
+          <span class="feature-tag tag-blue">Try It Live</span>
+          <h2 class="heading-md">Experience Relisto Right Now</h2>
+          <p class="subtitle" style="font-size: 1rem; margin-top: 0.5rem;">
+            Tap items below to see how easy it is to add predefined items to your active list and clear when finished.
+          </p>
+        </div>
+
+        <div class="simulator-body">
+          <!-- Predefined Panel -->
+          <div>
+            <div class="sim-panel-title">
+              <span>🛒 Predefined Items</span>
+              <span style="font-size: 0.8rem; font-weight: normal; color: var(--text-muted);">Saved once</span>
+            </div>
+            <div class="sim-items-grid" id="sim-predefined">
+              <!-- Rendered dynamically by main.js -->
+            </div>
+          </div>
+
+          <!-- Active List Panel -->
+          <div>
+            <div class="sim-panel-title">
+              <span>📋 Active List (<span id="sim-count-badge">1 item</span>)</span>
+              <button class="sim-clear-btn" id="sim-clear">Clear Completed</button>
+            </div>
+            <div class="sim-active-list" id="sim-active">
+              <!-- Rendered dynamically by main.js -->
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================================
+       Feature Section 2 — Grouped Notes
+       ========================================================================= -->
+  <section class="section">
+    <div class="container">
+      <div class="feature-card-wrapper">
+        <div class="feature-grid reverse">
+          <div class="feature-text">
+            <span class="feature-tag tag-peach">Grouped Notes</span>
+            <h2 class="heading-lg">Keep related notes together.</h2>
+            <p class="subtitle" style="margin-top: 0.75rem;">
+              Keep workouts, recipes, ideas, references, and meeting thoughts neatly organized alongside your lists inside custom categories.
+            </p>
+
+            <ul class="feature-list" style="margin-top: 1.75rem;">
+              <li>
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#FB923C" stroke-width="3"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                <span><strong>Simple Note Editor:</strong> Write clean, distraction-free notes without unnecessary complexity.</span>
+              </li>
+              <li>
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#FB923C" stroke-width="3"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                <span><strong>Category Grouping:</strong> Group workouts, ingredients, travel itineraries, and work notes cleanly.</span>
+              </li>
+              <li>
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#FB923C" stroke-width="3"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                <span><strong>Pin Important Notes:</strong> Pin key reference notes to the top of any category for instant access.</span>
+              </li>
+              <li>
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#FB923C" stroke-width="3"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                <span><strong>Quick Formatting:</strong> Apply bold, italic, underline, or highlight text with effortless controls.</span>
+              </li>
+            </ul>
+          </div>
+
+          <div class="feature-visual">
+            <div class="dual-screen-stack">
+              <div class="feature-screen-frame screen-1">
+                <img src="./assets/screenshots/screenshot-3.png" alt="Relisto Workouts Grouped Notes">
+              </div>
+              <div class="feature-screen-frame screen-2">
+                <img src="./assets/screenshots/screenshot-4.png" alt="Relisto Simple Note Editor">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================================
+       Feature Section 3 — Simple by Design
+       ========================================================================= -->
+  <section class="section">
+    <div class="container">
+      <div class="feature-card-wrapper">
+        <div class="feature-grid">
+          <div class="feature-text">
+            <span class="feature-tag tag-blue">Simple by Design</span>
+            <h2 class="heading-lg">Everything you need. Nothing complicated.</h2>
+            <p class="subtitle" style="margin-top: 0.75rem;">
+              Relisto focuses on quick everyday use instead of overwhelming users with bloated SaaS task management features, subscription popups, or confusing menus.
+            </p>
+
+            <ul class="feature-list" style="margin-top: 1.75rem;">
+              <li>
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#38BDF8" stroke-width="3"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                <span><strong>Fast List Creation:</strong> Build a list in seconds with zero friction.</span>
+              </li>
+              <li>
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#38BDF8" stroke-width="3"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                <span><strong>Quick Item Reuse:</strong> Never type the same recurring checklist items twice.</span>
+              </li>
+              <li>
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#38BDF8" stroke-width="3"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                <span><strong>Custom Categories:</strong> Color-coded categories with friendly emojis.</span>
+              </li>
+              <li>
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#38BDF8" stroke-width="3"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                <span><strong>Easy Navigation:</strong> Clean iOS native UI designed for one-handed daily use.</span>
+              </li>
+            </ul>
+          </div>
+
+          <div class="feature-visual">
+            <div class="feature-screen-frame">
+              <img src="./assets/screenshots/screenshot-1.png" alt="Relisto Simple Category Overview">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================================
+       Feature Section 4 — Privacy / Local Storage
+       ========================================================================= -->
+  <section class="section" id="privacy">
+    <div class="container">
+      <div class="feature-card-wrapper">
+        <div class="feature-grid reverse">
+          <div class="feature-text">
+            <span class="feature-tag tag-purple">Private & On-Device</span>
+            <h2 class="heading-lg">Your data. Always in your hands.</h2>
+            <p class="subtitle" style="margin-top: 0.75rem;">
+              No login. No cloud. Your lists and notes stay on your device, with simple backup and restore whenever you need it.
+            </p>
+
+            <ul class="feature-list" style="margin-top: 1.75rem;">
+              <li>
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#C084FC" stroke-width="3"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                <span><strong>No Account Needed:</strong> Start using Relisto immediately without signing up, giving an email, or setting a password.</span>
+              </li>
+              <li>
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#C084FC" stroke-width="3"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                <span><strong>Stored on Your Device:</strong> All list items and notes are saved directly in local storage on your iPhone.</span>
+              </li>
+              <li>
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#C084FC" stroke-width="3"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                <span><strong>Local File Backup:</strong> Export your data to a backup file anytime. Save it to Files, AirDrop, or your personal drive and restore it whenever you switch devices.</span>
+              </li>
+            </ul>
+          </div>
+
+          <div class="feature-visual">
+            <div class="feature-screen-frame">
+              <img src="./assets/screenshots/screenshot-5.png" alt="Relisto Backup and Restore Screen">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================================
+       Feature Section 5 — Everyday Use Cases Grid
+       ========================================================================= -->
+  <section class="section" style="background: var(--bg-surface); border-top: 1px solid var(--border-subtle); border-bottom: 1px solid var(--border-subtle);">
+    <div class="container">
+      <div style="text-align: center; max-width: 650px; margin: 0 auto 3rem auto;">
+        <span class="feature-tag tag-mint">Use Cases</span>
+        <h2 class="heading-lg">Designed for Everything You Repeat</h2>
+        <p class="subtitle" style="margin-top: 0.5rem;">
+          Whether it’s weekly groceries, vacation packing, or gym routines, Relisto keeps your recurring life organized.
+        </p>
+      </div>
+
+      <div class="usecases-grid">
+        <!-- Shopping -->
+        <div class="usecase-card">
+          <div class="usecase-icon-box uc-shopping">
+            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="9" cy="21" r="1"></circle><circle cx="20" cy="21" r="1"></circle><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path></svg>
+          </div>
+          <h3>Shopping</h3>
+          <p>Never rewrite your regular groceries. Keep milk, eggs, bread, and fruits saved in your master list and pick what you need each week.</p>
+        </div>
+
+        <!-- Travel -->
+        <div class="usecase-card">
+          <div class="usecase-icon-box uc-travel">
+            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path></svg>
+          </div>
+          <h3>Travel</h3>
+          <p>Reuse your packing checklist for every trip. Passport, chargers, toiletries, and clothing lists ready with one tap.</p>
+        </div>
+
+        <!-- Work -->
+        <div class="usecase-card">
+          <div class="usecase-icon-box uc-work">
+            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path></svg>
+          </div>
+          <h3>Work</h3>
+          <p>Keep recurring tasks, weekly meeting agendas, and project checklists ready to reuse without starting from scratch.</p>
+        </div>
+
+        <!-- Home -->
+        <div class="usecase-card">
+          <div class="usecase-icon-box uc-home">
+            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>
+          </div>
+          <h3>Home</h3>
+          <p>Maintain reusable household chore lists, seasonal home maintenance tasks, and appliance filter replacement reminders.</p>
+        </div>
+
+        <!-- Workouts -->
+        <div class="usecase-card">
+          <div class="usecase-icon-box uc-workouts">
+            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 8h1a4 4 0 0 1 0 8h-1"></path><path d="M2 8h1a4 4 0 0 1 0 8H2"></path><path d="M6 12h12"></path></svg>
+          </div>
+          <h3>Workouts</h3>
+          <p>Keep workout routines and exercise reps organized by day, alongside progress notes and workout ideas.</p>
+        </div>
+
+        <!-- Recipes -->
+        <div class="usecase-card">
+          <div class="usecase-icon-box uc-recipes">
+            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 2v20"></path><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path></svg>
+          </div>
+          <h3>Recipes</h3>
+          <p>Keep ingredients and cooking notes together. Move needed ingredients directly into your shopping list with ease.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================================
+       How It Works Section (3 Steps)
+       ========================================================================= -->
+  <section class="section" id="how-it-works">
+    <div class="container">
+      <div style="text-align: center; max-width: 650px; margin: 0 auto;">
+        <span class="feature-tag tag-peach">Simple Workflow</span>
+        <h2 class="heading-lg">How Relisto Works</h2>
+        <p class="subtitle" style="margin-top: 0.5rem;">
+          Three simple steps to eliminate repetitive typing forever.
+        </p>
+      </div>
+
+      <div class="how-it-works-steps">
+        <div class="step-card">
+          <div class="step-num-badge">1</div>
+          <h3>Save</h3>
+          <p>Add items you use regularly into your predefined category library just once.</p>
+        </div>
+
+        <div class="step-card">
+          <div class="step-num-badge" style="background: var(--accent-blue);">2</div>
+          <h3>Reuse</h3>
+          <p>Pick saved items whenever you create a new list with a quick tap or drag.</p>
+        </div>
+
+        <div class="step-card">
+          <div class="step-num-badge" style="background: var(--accent-mint);">3</div>
+          <h3>Organize</h3>
+          <p>Keep lists and notes neatly grouped by category for instant access whenever you need them.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================================
+       Privacy Callout Section
+       ========================================================================= -->
+  <section class="section" style="padding-bottom: 2rem;">
+    <div class="container">
+      <div class="privacy-card-banner">
+        <h2 class="heading-lg">No account. No cloud. No clutter.</h2>
+        <p class="subtitle">
+          Relisto is designed for people who want a simple personal organizer without creating another account or depending on cloud storage. Your data stays on your device, and you can create your own backup file whenever you want.
+        </p>
+
+        <div class="privacy-points-grid">
+          <div class="privacy-point">
+            <div class="privacy-point-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle><line x1="18" y1="8" x2="22" y2="12"></line></svg>
+            </div>
+            <h4>No Login</h4>
+            <p>Start using Relisto immediately without creating an account or supplying personal info.</p>
+          </div>
+
+          <div class="privacy-point">
+            <div class="privacy-point-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><rect x="5" y="2" width="14" height="20" rx="2" ry="2"></rect><line x1="12" y1="18" x2="12.01" y2="18"></line></svg>
+            </div>
+            <h4>On-Device Data</h4>
+            <p>Your lists and notes stay stored locally on your device instead of remote servers.</p>
+          </div>
+
+          <div class="privacy-point">
+            <div class="privacy-point-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v11a2 2 0 0 1-2 2z"></path><polyline points="17 21 17 13 7 13 7 21"></polyline><polyline points="7 3 7 8 15 8"></polyline></svg>
+            </div>
+            <h4>Your Backups</h4>
+            <p>Create and restore your own local backup files whenever you switch devices.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================================
+       Final Call to Action (CTA) Section
+       ========================================================================= -->
+  <section class="cta-section" id="download">
+    <div class="container">
+      <div class="cta-box">
+        <h2 class="heading-xl">Ready to stop rewriting the same things?</h2>
+        <p class="subtitle">
+          Save once. Reuse anytime. Keep everything organized with Relisto.
+        </p>
+
+        <div>
+          <a href="#" class="btn-appstore" style="padding: 1rem 2.25rem; font-size: 1.1rem;">
+            <svg width="24" height="24" viewBox="0 0 384 512" fill="currentColor">
+              <path d="M318.7 268.7c-.2-36.7 16.4-64.4 50-84.8-18.8-26.9-47.2-41.7-84.7-44.6-35.5-2.8-74.3 20.7-88.5 20.7-15 0-49.4-19.7-76.4-19.7C63.3 141.2 4 184.8 4 273.5q0 39.3 14.4 81.2c12.8 36.7 59 126.7 107.2 125.2 25.2-.6 43-17.9 75.8-17.9 31.8 0 48.3 17.9 76.4 17.9 48.6-.7 90.4-82.5 102.6-119.3-65.2-30.7-61.7-90-61.7-92.1zm-57.8-164.1c27.3-32.4 24.8-61.9 24-72.5-24.1 1.4-52 16.4-67.9 34.9-17.5 19.8-27.8 44.3-25.6 71.9 26.1 2 52.3-13.7 69.5-34.3z"/>
+            </svg>
+            Download on the App Store
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================================
+       Footer Section
+       ========================================================================= -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <div class="brand-logo">
+            <div class="logo-badge">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="8" y1="6" x2="21" y2="6"></line>
+                <line x1="8" y1="12" x2="21" y2="12"></line>
+                <line x1="8" y1="18" x2="21" y2="18"></line>
+                <line x1="3" y1="6" x2="3.01" y2="6"></line>
+                <line x1="3" y1="12" x2="3.01" y2="12"></line>
+                <line x1="3" y1="18" x2="3.01" y2="18"></line>
+              </svg>
+            </div>
+            Relisto
+          </div>
+          <div class="slogan">Lists & Notes, Simplified.</div>
+        </div>
+
+        <ul class="footer-links">
+          <li><a href="#" data-modal="privacy">Privacy Policy</a></li>
+          <li><a href="#" data-modal="terms">Terms of Use</a></li>
+          <li><a href="#" data-modal="support">Support</a></li>
+          <li><a href="#" data-modal="support">Contact</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-bottom">
+        <div>© 2026 Mohammed Javad. All rights reserved.</div>
+        <div>Designed with local privacy first.</div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- =========================================================================
+       Interactive Lightbox Modal for Screenshots
+       ========================================================================= -->
+  <div class="lightbox-modal" id="lightbox-modal" role="dialog" aria-modal="true" aria-label="Screenshot Lightbox">
+    <div class="lightbox-container">
+      <button class="lightbox-close" id="lightbox-close" aria-label="Close Lightbox">✕</button>
+      
+      <div class="lightbox-img-wrapper">
+        <img id="lightbox-img" src="" alt="Expanded Relisto Screenshot">
+      </div>
+
+      <div class="lightbox-details">
+        <div class="lightbox-num" id="lightbox-num">Screenshot</div>
+        <h3 class="lightbox-title" id="lightbox-title">Title</h3>
+        <p class="lightbox-desc" id="lightbox-desc">Description</p>
+
+        <div class="lightbox-controls">
+          <button class="lightbox-btn" id="lightbox-prev" aria-label="Previous image">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="15 18 9 12 15 6"></polyline></svg>
+          </button>
+          <button class="lightbox-btn" id="lightbox-next" aria-label="Next image">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="15 18 9 12 15 6"></polyline></svg>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- =========================================================================
+       Legal & Support Modal (Privacy, Terms, Support Form)
+       ========================================================================= -->
+  <div class="legal-modal" id="legal-modal" role="dialog" aria-modal="true">
+    <div class="legal-container">
+      <button class="lightbox-close" id="legal-close" aria-label="Close Modal" style="top: 1.5rem; right: 1.5rem;">✕</button>
+      <h3 class="legal-title" id="legal-title">Title</h3>
+      <div class="legal-body" id="legal-body">
+        <!-- Content injected dynamically by main.js -->
+      </div>
+    </div>
+  </div>
+
+  <!-- JavaScript -->
+  <script src="./js/main.js"></script>
 </body>
 </html>
