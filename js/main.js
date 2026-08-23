@@ -11,35 +11,35 @@ document.addEventListener('DOMContentLoaded', () => {
   const screenshotsData = [
     {
       id: 1,
-      num: 'Screenshot 1 — Reusable Lists',
+      num: 'Reusable Lists',
       title: 'Save once. Reuse anytime.',
       desc: 'Keep your regular items ready instead of typing them again. Create reusable categories for shopping, travel, workouts, work, and household needs.',
       src: './assets/screenshots/screenshot-1.png'
     },
     {
       id: 2,
-      num: 'Screenshot 2 — Building a List',
+      num: 'Building a List',
       title: 'Just pick what you need.',
       desc: 'Add saved items to your active list with a quick tap or drag. Adjust quantities in seconds without recreating items from scratch.',
       src: './assets/screenshots/screenshot-2.png'
     },
     {
       id: 3,
-      num: 'Screenshot 3 — Grouped Notes',
+      num: 'Grouped Notes',
       title: 'Keep related notes together.',
       desc: 'Keep workouts, recipes, ideas, references, and more neatly organized by category alongside your reusable lists.',
       src: './assets/screenshots/screenshot-3.png'
     },
     {
       id: 4,
-      num: 'Screenshot 4 — Simple Notes',
+      num: 'Simple Notes',
       title: 'Write it down. Find it easily.',
       desc: 'Keep notes simple with easy formatting, bold/italic highlights, quick bullet points, and pinning for instant access to what matters most.',
       src: './assets/screenshots/screenshot-4.png'
     },
     {
       id: 5,
-      num: 'Screenshot 5 — Backup & Restore',
+      num: 'Backup & Restore',
       title: 'Your data. Always in your hands.',
       desc: 'Keep everything safely stored on your device. Export a backup file anytime and restore your data whenever you switch phones or reinstall.',
       src: './assets/screenshots/screenshot-5.png'
