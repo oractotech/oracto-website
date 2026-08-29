@@ -220,18 +220,33 @@ button {
   font-weight: 800;
   color: var(--text-primary);
   letter-spacing: -0.02em;
+  text-decoration: none;
 }
 
 .logo-badge {
   width: 42px;
   height: 42px;
-  background: linear-gradient(135deg, rgba(56, 189, 248, 0.2), rgba(192, 132, 252, 0.2));
-  border: 1px solid rgba(56, 189, 248, 0.4);
+  background: linear-gradient(135deg, rgba(56, 189, 248, 0.15), rgba(192, 132, 252, 0.15));
+  border: 1px solid rgba(56, 189, 248, 0.35);
   border-radius: 12px;
   display: flex;
   align-items: center;
   justify-content: center;
-  box-shadow: 0 0 15px rgba(56, 189, 248, 0.2);
+  overflow: hidden;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.3), 0 0 15px rgba(56, 189, 248, 0.15);
+}
+
+.brand-icon-img {
+  width: 30px;
+  height: 30px;
+  object-fit: contain;
+}
+
+.brand-text-img {
+  height: 26px;
+  width: auto;
+  object-fit: contain;
+  display: block;
 }
 
 .logo-badge svg {

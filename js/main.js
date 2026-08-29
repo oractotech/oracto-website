@@ -285,27 +285,13 @@ document.addEventListener('DOMContentLoaded', () => {
         <p>Relisto is provided "as is" without warranty of any kind. In no event shall the author be liable for any direct, indirect, or incidental data loss resulting from device hardware failure or lost devices.</p>
       `
     },
+    /* support popup modal disabled in favor of direct mailto: link and https://oracto.com/relisto-support.html */
+    /*
     support: {
       title: 'Support & Help',
-      content: `
-        <p>Need assistance with Relisto or have a feature suggestion? We are here to help!</p>
-        <form id="support-form" style="margin-top: 1.5rem;" onsubmit="event.preventDefault(); alert('Thank you! Your message has been sent. We will respond shortly.'); document.getElementById('legal-modal').classList.remove('active');">
-          <div class="support-form-group">
-            <label for="sup-name">Your Name</label>
-            <input type="text" id="sup-name" placeholder="John Doe" required>
-          </div>
-          <div class="support-form-group">
-            <label for="sup-email">Your Email</label>
-            <input type="email" id="sup-email" placeholder="name@example.com" required>
-          </div>
-          <div class="support-form-group">
-            <label for="sup-msg">How can we help?</label>
-            <textarea id="sup-msg" rows="4" placeholder="Describe your question or suggestion..." required></textarea>
-          </div>
-          <button type="submit" class="btn-appstore" style="width: 100%; justify-content: center; margin-top: 0.5rem;">Send Message</button>
-        </form>
-      `
+      content: `...`
     }
+    */
   };
 
   function openLegalModal(type) {
